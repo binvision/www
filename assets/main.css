@@ -1,130 +1,208 @@
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,  figure, figcaption, footer, header, hgroup,  menu, nav, output, ruby, section, summary, time, mark, audio, video {  
-	margin: 0;  
-	padding: 0;  
-	border: 0;  
-	font-size: 100%;  
-	font: inherit;  
-	vertical-align: baseline; 
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
 @keyframes fadein {
-	from { opacity: 0; }
-	to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 :root {
   --space: 16px;
-	--space-half: 8px;
-	--space-double: 32px;
-	--space-triple: 48px;
-	--radius: 5px;
-	--radius-double: 10px;
+  --space-half: 8px;
+  --space-double: 32px;
+  --space-triple: 48px;
+  --radius: 5px;
+  --radius-double: 10px;
 }
 
-@font-face {   
-	font-family: 'Roboto';  
-	src: URL('/assets/RobotoMono-Light.ttf') format('truetype'); 
-} 
-
+@font-face {
+  font-family: "Roboto";
+  src: URL("/assets/RobotoMono-Light.ttf") format("truetype");
+}
 
 html,
-body{
-	font-family: Roboto, monospace;
-	font-size: 14px;
-	height: 100%;
-	overflow: hidden;
-	background: #FBFBFB;
+body {
+  font-family: Roboto, monospace;
+  font-size: 14px;
+  height: 100%;
+  overflow: hidden;
+  background: #fbfbfb;
 }
 
 canvas {
   display: block;
-	width: 50%;
+  width: 50%;
 }
-
 
 h1 {
-	font-size: 24px;
-	color: white;
+  font-size: 24px;
+  color: white;
 }
 
-header{
-	padding-bottom:  var(--space);
-	
+header {
+  padding-bottom: var(--space);
 }
 
-p{
-	padding-bottom: var(--space-half);
-	color: white;
+p {
+  padding-bottom: var(--space-half);
+  color: white;
 }
 
-a{ 
-	text-decoration: none; 
-	color: white;
+a {
+  text-decoration: none;
+  color: white;
 }
 
 .container3d {
-	width: 100%;
-	height: 50vh;
+  width: 100%;
+  height: 50vh;
 }
 
 @media only screen and (min-width: 600px) {
-	.container3d {
-		height: 100%;
-	}
+  .container3d {
+    height: 100%;
+  }
 }
 
 .content {
-	animation: fadein 1s;
-	background: rgba(24,42,227,0.9);
-	padding: var(--space-double);
-	position: fixed;
-	min-width: 25%;
-	left: var(--space-triple);
-	right: var(--space-triple);
-	bottom: var(--space-triple);
-	border-radius: var(--radius-double);
-	z-index: 2;
-	box-shadow: 3px 3px 30px rgba(0,0,0,0.2);
+  animation: fadein 1s;
+  background: rgba(24, 42, 227, 0.9);
+  padding: var(--space-double);
+  position: fixed;
+  min-width: 25%;
+  left: var(--space-triple);
+  right: var(--space-triple);
+  bottom: var(--space-triple);
+  border-radius: var(--radius-double);
+  z-index: 2;
+  box-shadow: 3px 3px 30px rgba(0, 0, 0, 0.2);
 }
 
 @media only screen and (min-width: 600px) {
-
-	.content {
-		left:unset;
-	}
+  .content {
+    left: unset;
+  }
 }
-
 
 .video {
-	position: fixed;
-	right: 0;
-	bottom: 0;
-	width: auto;
-	min-width: 110%; 
-	min-height: 110%;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  min-width: 110%;
+  min-height: 110%;
 }
-
 
 [data-tooltip] {
   cursor: pointer;
-	position: relative;
+  position: relative;
 }
 
 [data-tooltip]::before {
   position: absolute;
-	top:-32px;
+  top: -32px;
   opacity: 0;
   pointer-events: none;
-	font-size: 12px;
+  font-size: 12px;
   content: attr(data-tooltip);
-  background-color: rgba(0,0,0,0.9);
-	border-radius: var(--radius);
-	white-space: nowrap;
-	color: #fff;
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: var(--radius);
+  white-space: nowrap;
+  color: #fff;
   padding: var(--space-half);
   transform: translateY(-20px);
-  transition: all 150ms cubic-bezier(.25, .8, .25, 1);
-	z-index: 10;
+  transition: all 150ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: 10;
 }
 
 [data-tooltip]:hover::before {
@@ -133,9 +211,9 @@ a{
   transition-duration: 300ms;
 }
 
-.copy-done::after{
-  content: ' /copied';
-	padding-left: 5px;
-	width: 12px;
-	height: 12px;
+.copy-done::after {
+  content: " /copied";
+  padding-left: 5px;
+  width: 12px;
+  height: 12px;
 }
