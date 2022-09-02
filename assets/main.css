@@ -16,20 +16,31 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   --space: 16px;
 	--space-half: 8px;
 	--space-double: 32px;
+	--space-triple: 48px;
 	--radius: 5px;
+	--radius-double: 10px;
 }
 
 @font-face {   
-	font-family: 'IBMPlexMono';  
-	src: URL('/assets/IBMPlexMono-Regular.ttf') format('truetype'); 
+	font-family: 'Roboto';  
+	src: URL('/assets/RobotoMono-Light.ttf') format('truetype'); 
 } 
+
 
 html,
 body{
-	background: #333;
-	font-family: IBMPlexMono, monospace;
+	font-family: Roboto, monospace;
 	font-size: 14px;
+	height: 100%;
+	overflow: hidden;
+	background: #FBFBFB;
 }
+
+canvas {
+  display: block;
+	width: 50%;
+}
+
 
 h1 {
 	font-size: 24px;
@@ -46,37 +57,53 @@ p{
 	color: white;
 }
 
-a{ text-decoration: none; color: white;}
+a{ 
+	text-decoration: none; 
+	color: white;
+}
 
-.video {
+.container3d {
 	width: 100%;
-	animation: fadein 3s;
+	height: 50vh;
+}
+
+@media only screen and (min-width: 600px) {
+	.container3d {
+		height: 100%;
+	}
 }
 
 .content {
 	animation: fadein 1s;
+	background: rgba(24,42,227,0.9);
 	padding: var(--space-double);
+	position: fixed;
+	min-width: 25%;
+	left: var(--space-triple);
+	right: var(--space-triple);
+	bottom: var(--space-triple);
+	border-radius: var(--radius-double);
+	z-index: 2;
+	box-shadow: 3px 3px 30px rgba(0,0,0,0.2);
 }
 
-@media screen and (min-width: 480px) {
+@media only screen and (min-width: 600px) {
+
 	.content {
-		position: fixed;
-		min-width: 33%;
-		left: var(--space-double);
-		bottom: var(--space-double);
-		border-radius: var(--radius);;
-		z-index: 2;
-	}
-
-	.video {
-		position: fixed;
-		right: 0;
-		bottom: 0;
-		width: auto;
-		min-width: 110%; 
-		min-height: 110%;
+		left:unset;
 	}
 }
+
+
+.video {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	width: auto;
+	min-width: 110%; 
+	min-height: 110%;
+}
+
 
 [data-tooltip] {
   cursor: pointer;

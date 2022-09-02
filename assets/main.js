@@ -15,3 +15,8 @@ var copyEls = document.querySelectorAll('.js-copy')
 copyEls.forEach(function(el){
   el.addEventListener('click', copyToCb)
 })
+
+import { Application } from '/assets/runtime.js';
+const canvas = document.getElementById('canvas3d');
+const app = new Application(canvas);
+app.load('/assets/scene.splinecode');
