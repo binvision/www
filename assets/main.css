@@ -154,7 +154,7 @@ a {
   }
 }
 
-.content {
+main {
   animation: fadein 1s;
   background: rgba(24, 42, 227, 0.9);
   padding: var(--space-double);
@@ -169,18 +169,9 @@ a {
 }
 
 @media only screen and (min-width: 600px) {
-  .content {
+  main {
     left: unset;
   }
-}
-
-.video {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  width: auto;
-  min-width: 110%;
-  min-height: 110%;
 }
 
 [data-tooltip] {
@@ -212,7 +203,8 @@ a {
 }
 
 .copy-done::after {
-  content: " /copied";
+  content: " copied";
+	font-weight: 900;
   padding-left: 5px;
   width: 12px;
   height: 12px;

@@ -1,42 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>binvision kft</title>
-    <meta property="og:title" content="binvision" />
-    <meta property="og:url" content="https://binvision.hu" />
-    <meta property="og:image" content="https://binvision.hu/assets/og.jpg" />
-    <meta name="description" content=":)">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-    <script defer="defer" type="module" src="/assets/main.js?v=1"></script>
-    <link href="/assets/main.css?v=1" rel="stylesheet">
-  </head>
-  <body>
-    <div class="container3d">
-      <canvas id="canvas3d"></canvas>
-    </div>
-    <section class="content">
+
+<head>
+  <meta charset="UTF-8">
+  <title>BINVISION - Consulting & Development</title>
+  <meta property="og:title" content="BINVISION" />
+  <meta property="og:url" content="https://binvision.hu" />
+  <meta name="description" content="IT Consulting & Development">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <script defer="defer" type="module" src="/assets/main.js?v=1"></script>
+  <link href="/assets/main.css?v=1" rel="stylesheet">
+</head>
+
+<body>
+  <main>
+    <article itemscope itemtype="https://schema.org/Organization">
       <header>
-        <h1>BINVISION KFT</h1>
-        <p>Consulting & Development</p>
+        <h1 itemprop="name">BINVISION KFT</h1>
+        <p itemprop="description">IT Consulting & Development</p>
       </header>
-      <main>
-        <p>
-          Billing: H-9400 Sopron, Mikoviny u 26<br>
-          Office: &nbsp;<a href="https://www.google.com/maps?daddr=Sopron,+Jókai+u.+21,+9400" target="_blank" data-tooltip="Check it on Google Maps">H-9400 Sopron Jókai u 21 (16)</a>
-        </p>
-        <p>
-          <a href="mailto:info@binvision.hu?subject=hello" data-tooltip="Say Hello!">info@binvision.hu</a>
-        </p>
-        <p>
-          VAT: <a href="#" data-tooltip="European VAT Number (VIES)" class="js-copy">HU23421156</a><br>
-          CID: <a href="#" data-tooltip="Hungarian Company Registration Identifier" class="js-copy">0809022100</a><br>
-          LEI: <a href="#" data-tooltip="Global Legal Entity Identifier" class="js-copy">9845005CCB790E2CFB46</a></p>
-        <p>
-          EUR: <span data-tooltip="IBAN - Wise (EUR)" class="js-copy">BE72 9670 3548 7616</span><br>
-          HUF: <span data-tooltip="IBAN - Erste Bank (HUF)" class="js-copy">HU79 1160 0006 0000 0000 7792 5688</span>
-        </p>
-      </main>
-    </section>
-  </body>
+      <p>
+        <a href="mailto:info@binvision.hu?subject=hello" data-tooltip="Say Hello!"
+          itemprop="email">info@binvision.hu</a>
+      </p>
+      <p itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+        Billing:
+        H-<span itemprop="postalCode">9400</span>
+        <span itemprop="addressLocality">Sopron</span>,
+        <span itemprop="streetAddress">Mikoviny u 26</span>
+        <br/>
+        Office:&nbsp;
+        <a href="https://www.google.com/maps?daddr=Sopron,+Jókai+u.+21,+9400" target="_blank"
+          data-tooltip="Check it on Google Maps" itemscope itemtype="https://schema.org/PostalAddress">H-9400 Sopron,
+          Jókai u 21/16</a>
+      </p>
+      <p>
+        <a href="#" data-tooltip="European VAT Number (VIES)">
+          <span>VAT</span>:
+          <span itemprop="vatId" class="js-copy">HU23421156</span>
+        </a><br/>
+        <a href="#" data-tooltip="Hungarian Company Registration Identifier" itemscope itemprop="identifier"
+          itemtype="https://schema.org/PropertyValue">
+          <span itemprop="propertyID">CID</span>:
+          <span itemprop="value" class="js-copy">0809022100</span>
+        </a><br/>
+        <a href="#" data-tooltip="Global Legal Entity Identifier">
+          <span>LEI</span>:
+          <span itemprop="leiCode" class="js-copy">9845005CCB790E2CFB46</span>
+        </a>
+      </p>
+      <p>
+        EUR: <span data-tooltip="IBAN - Wise (EUR)" class="js-copy">BE72 9670 3548 7616</span><br>
+        HUF: <span data-tooltip="IBAN - Erste Bank (HUF)" class="js-copy">HU79 1160 0006 0000 0000 7792 5688</span>
+      </p>
+    </article>
+  </main>
+  <div class="container3d">
+    <canvas id="canvas3d"></canvas>
+  </div>
+</body>
+
 </html>
