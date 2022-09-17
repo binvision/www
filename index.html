@@ -7,10 +7,10 @@
   <meta property="og:title" content="BINVISION" />
   <meta property="og:url" content="https://binvision.hu" />
   <meta name="description" content="IT Consulting & Development">
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui">
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <script defer="defer" type="module" src="/assets/main.js?v=1"></script>
-  <link href="/assets/main.css?v=1" rel="stylesheet">
+  <link href="/assets/main.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -55,6 +55,20 @@
         HUF: <span data-tooltip="IBAN - Erste Bank (HUF)" class="js-copy">HU79 1160 0006 0000 0000 7792 5688</span>
       </p>
     </article>
+      <div class="fixed transition ease-in-out delay-150 bottom-100 left-4 right-4 bg-white h-1/2 p-8 rounded-t-lg shadow-lg"
+        x-show="contactOpen"
+        @click.away="contactOpen = false"
+      >
+        <button type="submit" class="absolute right-8 top-4 rotate-45 text-gray text-6xl">+</button>
+        <h1>Contact</h1>
+        <p>Say hi to me and the squad. Let us know how could we help your business and we will contact you soon</p>
+        <input type="text" name="name" placeholder="Name" class="border-b border-gray text-xl w-full mb-4 outline-none">
+        <input type="email" name="email" placeholder="Email" class="border-b border-gray text-xl w-full mb-4 outline-none">
+        <input type="phone" name="phone" placeholder="Phone number" class="border-b border-gray text-xl w-full mb-4 outline-none">
+        <textarea placeholder="Details" rows="3" class="border-b border-gray text-xl w-full mb-4 outline-none">
+        </textarea>
+        <button type="submit" class="bg-black text-white px-4 py-2" @click="contactOpen = false">Send</button>
+      </div>
   </main>
   <div class="container3d">
     <canvas id="canvas3d"></canvas>
