@@ -3,76 +3,154 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>BINVISION - IT Consulting & Development since 2006</title>
-  <meta property="og:title" content="BINVISION" />
-  <meta property="og:url" content="https://binvision.hu" />
-  <meta name="description" content="IT Consulting & Development">
+  <title>{{meta.title}}</title>
+  <meta property="og:title" content="{{meta.ogTitle}}" />
+  <meta property="og:url" content="{{meta.ogUrl}}" />
+  <meta name="description" content="{{meta.ogDescription}}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui">
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <script defer="defer" type="module" src="/assets/main.js?v=1"></script>
   <link href="/assets/main.min.css" rel="stylesheet">
 </head>
 
-<body>
-  <main>
-    <article itemscope itemtype="https://schema.org/Organization">
-      <header>
-        <h1 itemprop="name">BINVISION KFT</h1>
-        <p itemprop="description">IT Consulting & Development</p>
-      </header>
-      <p>
-        <a href="mailto:info@binvision.hu?subject=hello" data-tooltip="Say Hello!"
-          itemprop="email">info@binvision.hu</a>
-      </p>
-      <p itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-        Billing:
-        H-<span itemprop="postalCode">9400</span>
-        <span itemprop="addressLocality">Sopron</span>,
-        <span itemprop="streetAddress">Mikoviny u 26</span>
-        <br/>
-        Office:&nbsp;
-        <a href="https://www.google.com/maps?daddr=Sopron,+Jókai+u.+21,+9400" target="_blank"
-          data-tooltip="Check it on Google Maps" itemscope itemtype="https://schema.org/PostalAddress">H-9400 Sopron,
-          Jókai u 21/16</a>
-      </p>
-      <p>
-        <a href="#" data-tooltip="European VAT Number (VIES)">
-          <span>VAT</span>:
-          <span itemprop="vatId" class="js-copy">HU23421156</span>
-        </a><br/>
-        <a href="#" data-tooltip="Hungarian Company Registration Identifier" itemscope itemprop="identifier"
-          itemtype="https://schema.org/PropertyValue">
-          <span itemprop="propertyID">CID</span>:
-          <span itemprop="value" class="js-copy">0809022100</span>
-        </a><br/>
-        <a href="#" data-tooltip="Global Legal Entity Identifier">
-          <span>LEI</span>:
-          <span itemprop="leiCode" class="js-copy">9845005CCB790E2CFB46</span>
-        </a>
-      </p>
-      <p>
-        EUR: <span data-tooltip="IBAN - Wise (EUR)" class="js-copy">BE72 9670 3548 7616</span><br>
-        HUF: <span data-tooltip="IBAN - Erste Bank (HUF)" class="js-copy">HU79 1160 0006 0000 0000 7792 5688</span>
-      </p>
+<body class="" :class="bgColor" x-data="{ contactOpen: false, bgColor: 'bg-yellow', textColor: 'text-yellow' }">
+  
+  <nav class="py-8 px-8 md:py-16 md:px-16 flex justify-betweenshadow-lg z-40 absolute w-full">
+    <h1 class="grow flex">
+      <img src="/assets/binvision-logo.svg" class="w-16 h-16">
+      <span class="py-4">{{header.title}}</span>
+    </h1>
+    <div class="shadow-md rouded-md h-8 hidden md:block">
+      <ul class="flex w-full">
+        {% for nav in navigation %}
+        <li class="">
+          <a href="{{nav.url}}" class="px-6 py-2  rounded-l-md active:bg-black hover:bg-black hover:text-white border border-yellow uppercase">{{nav.name}}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </nav>
+
+  <header class="relative md:flex pt-32 h-screen" id="intro">
+    <div class="w-full md:w-1/2 md:h-full">
+      <canvas class="js-3d"></canvas>
+    </div>
+    <article class="md:w-1/2 p-8 md:p-8 md:right-0">
+      <h1 class="text-4xl md:text-6xl">{{intro.p1}}</h1>
+      <p class="text-2xl md:text-6xl pb-8">{{intro.p2}}</p>
+      <p class="text-xl md:text-4xl pb-8">{{intro.p3}}</p>
+      <a class="px-8 py-4 shadow-lg bg-black text-white text-xl"  @click="contactOpen = true">{{intro.b1}}</a>
+      <a href="#references" class="px-8 py-4 shadow-lg text-xl ml-2">{{intro.b2}}</a>
     </article>
+  </header>
+
+  <main>
+    <section id="how" class="h-75 bg-black py-24">
+      <div class="container mx-auto">
+        <h2 class="px-8 py-24" :class="textColor">{{how.title}}</h2>
+        <div class="flex">
+          {% for step in how.steps %}
+          <figure class="p-4">
+            <img src="/assets/steps/{{step.img}}" alt="">
+            <figcaption>{{step.name}}</figcaption>
+          </figure>
+          {% endfor %}
+        </div>
+        <p class="text-2xl text-white">{{how.description}}</p>
+      </div>
+    </section>
+
+    <section id="works" class="py-24">
+      <div class="px-8">
+        <h2 class="text-3xl">{{references.title}}</h2>
+        <p>{{references.intro}}</p>
+      </div>
+      <div class="bg-stripes grid gap-[1px] grid-cols-1 md:grid-cols-3 md:grid-rows-2">
+        {% for reference in references.references %}
+        <figure class="p-4" :class="bgColor">
+          <img src="/assets/clients/{{reference.img}}" alt="Zamg">
+          <figcaption>{{reference.name}}</figcaption>
+          <div>
+            {{reference.description}}
+          </div>
+        </figure>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="px-8 bg-black py-24">
+      <div class="container mx-auto">
+        <h2 class="text-3xl text-white">{{news.title}}</h2>
+        {% for n in news.news %}
+        <article>
+          <p class="py-2 text-white" ><mark class="py-2 px-2" :class="bgColor">{{n.date}}</mark> - {{n.title}}</p>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section id="company" class="pt-24 pb-8 px-8">
+      <article class="flex flex-col md:flex-row container mx-auto" itemscope itemtype="https://schema.org/Organization">
+        <div class="md:w-1/3">
+          <h2 class="text-3xl">{{company.title}}</h2>
+        </div>
+        <div class="md:w-1/3">
+          <h3 itemprop="name">{{company.name}}</h3>
+          <p>{{company.longName}}</p>
+          <p itemprop="description">{{company.description}}</p>
+          <p>
+            <a href="mailto:{{company.email}}?subject={{company.emailSubject}}" data-tooltip="{{company.emailTip}}" itemprop="email">{{company.email}}</a>
+          </p>
+          <p itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+            {{company.billingLabel}}:
+            {{company.country}}-<span itemprop="postalCode">{{company.zip}}</span>
+            <span itemprop="addressLocality">{{company.city}}</span>,
+            <span itemprop="streetAddress">{{company.address}}</span>
+            <br />
+            {{company.officeLabel}}:&nbsp;
+            <a href="{{company.gmaps}}" target="_blank" data-tooltip="Check it on Google Maps" itemscope itemtype="https://schema.org/PostalAddress">{{company.office}}</a>
+          </p>
+        </div>
+        <div class="md:w-1/3">
+          <p>
+            <a href="#" data-tooltip="{{company.VATTip}}">
+              <span>{{company.VATLabel}}</span>:
+              <span itemprop="vatId" class="js-copy">{{company.VAT}}</span>
+            </a><br />
+            <a href="#" data-tooltip="{{company.CIDTip}}" itemscope itemprop="identifier"
+              itemtype="https://schema.org/PropertyValue">
+              <span itemprop="propertyID">{{company.CIDLabel}}</span>:
+              <span itemprop="value" class="js-copy">{{company.CID}}</span>
+            </a><br />
+            <a href="#" data-tooltip="{{company.LEITip}}">
+              <span>{{company.LEILabel}}</span>:
+              <span itemprop="leiCode" class="js-copy">{{company.LEI}}</span>
+            </a>
+          </p>
+          <p>
+            {{company.bank1Short}}: <span data-tooltip="{{company.bank1Label}}" class="js-copy">{{company.bank1}}</span><br>
+            {{company.bank2Short}}: <span data-tooltip="{{company.bank2Label}}" class="js-copy">{{company.bank2}}</span>
+          </p>
+        </div>
+      </div>
+      </article>
       <div class="fixed transition ease-in-out delay-150 bottom-100 left-4 right-4 bg-white h-1/2 p-8 rounded-t-lg shadow-lg"
         x-show="contactOpen"
         @click.away="contactOpen = false"
       >
         <button type="submit" class="absolute right-8 top-4 rotate-45 text-gray text-6xl">+</button>
-        <h1>Contact</h1>
-        <p>Say hi to me and the squad. Let us know how could we help your business and we will contact you soon</p>
-        <input type="text" name="name" placeholder="Name" class="border-b border-gray text-xl w-full mb-4 outline-none">
-        <input type="email" name="email" placeholder="Email" class="border-b border-gray text-xl w-full mb-4 outline-none">
-        <input type="phone" name="phone" placeholder="Phone number" class="border-b border-gray text-xl w-full mb-4 outline-none">
+        <h1>{{contact.title}}</h1>
+        <p>{{contact.intro}}</p>
+        <input type="text" name="name" placeholder="{{contact.name}}" class="border-b border-gray text-xl w-full mb-4 outline-none">
+        <input type="email" name="email" placeholder="{{contact.email}}" class="border-b border-gray text-xl w-full mb-4 outline-none">
+        <input type="phone" name="phone" placeholder="{{contact.phone}}" class="border-b border-gray text-xl w-full mb-4 outline-none">
         <textarea placeholder="Details" rows="3" class="border-b border-gray text-xl w-full mb-4 outline-none">
         </textarea>
-        <button type="submit" class="bg-black text-white px-4 py-2" @click="contactOpen = false">Send</button>
+        <button type="submit" class="bg-black text-white px-4 py-2" @click="contactOpen = false">{{contact.button}}</button>
       </div>
+    </section>
   </main>
-  <div class="container3d">
-    <canvas id="canvas3d"></canvas>
-  </div>
+  
 </body>
 
 </html>
