@@ -32,7 +32,7 @@ how:
       img: 
     - name: Production
       img: 
-  description: We learn your business, prototype your solution with zero sales bullshit.</p>
+  description: We learn your business, prototype your solution and deliver it with zero bullshit.</p>
         and cooperation with big corporations and. <br>
         We deliver highly reliable systems <br> with unbelievable speed. 
 references:
@@ -43,6 +43,9 @@ references:
       img: zamg.svg
       url: https://meteoalarm.org 
       description: We are working with ZAMG since 2017. Our main project is EUMETNET Meteoalarm which is collecting weather alerts from all European weather agenices and distributing them to Google (Google Search), Apple (native wather app), Android (native weather app), IBM, (Accuweather), Apple and Android native weather apps, Accuweather, Metoblue and other weather data consumers
+    - name: Rika
+      img: rika.svg
+      url: https://www.rika.at
     - name: Refurbed 
       img: refurbed.svg
       url: https://refurbed.com
@@ -53,12 +56,9 @@ references:
       img: whatchado.svg
       url: https://www.whatchado.com 
       description: I planned and worked on rebuilding the new watchado platform's frontend which went live in 2019. My friends who are running their systems are still happy to further develop it. 
-    - name: Rika
-      img: rika.svg
-      url: https://www.rika.at
-    - name: Easybooking
-      img: easybooking.svg
-      url: https://www.easybooking.at
+    - name: Your company
+      img: plus.svg
+      url: #
 news: 
   title: News
   news: 
@@ -67,15 +67,16 @@ news:
     - date: 2021.04.08
       title: The new Eumetnet Meteoalarm HUB is completely replaced the previous system. Our system was mentioned on TV and newspapers Austria-wide
     - date: 2019.12.12
-      title: I reported a severe authentication-related issue and won Gitlab's 2019 Bug Bounty contest
+      title: I won Gitlab's 2019 Bug Bounty contest by reporting an authentication issue with the highest severity 
 company: 
   title: Company Info
   name: Binvision Kft
-  longName: Binvision Informatikai Korlátolt Felelősségű Társaság (Limited)
+  longName: Binvision Informatikai<br/> Korlátolt Felelősségű Társaság (Limited)
   description: IT Consulting & Development
   email: info@binvision.hu
   emailTip: Say Hello!
   emailSubject: hello
+  phone: +36 20 983 94 88
   billingLabel: Billing
   country: H 
   zip: 9400
@@ -106,3 +107,6 @@ contact:
   email: Email
   phone: Phone number
   button: Send
+footer:
+  imprint: © 2006-2022 Binvision Kft. - All rights reserved. 
+  gdpr: GDPR - noo cookies, no cry.
