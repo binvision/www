@@ -25,11 +25,15 @@
   src: URL("/assets/RobotoMono-Light.ttf") format("truetype");
 }
 
-@font-face {
-  font-family: "AlbertSans";
-  src: URL("/assets/Albert_Sans/AlbertSans-Italic-VariableFont_wght.ttf") format("truetype");
-}
 
+.bg-stripes {
+  background: repeating-linear-gradient(
+    -45deg, 
+    rgba(0,0,0,0), 
+    rgba(0,0,0,0) 3px, 
+    rgba(0,0,0,1) 3px, 
+    rgba(0,0,0,1) 6px);
+}
 
 html,
 body {

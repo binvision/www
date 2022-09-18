@@ -20,6 +20,6 @@ copyEls.forEach(function (el) {
 });
 
 import { Application } from "/assets/runtime.js";
-const canvas = document.getElementById("canvas3d");
+const canvas = document.querySelector(".js-3d");
 const app = new Application(canvas);
 app.load("/assets/scene.splinecode");

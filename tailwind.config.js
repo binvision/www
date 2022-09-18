@@ -10,8 +10,8 @@ module.exports = {
       black: "#000",
     },
     fontFamily: {
-      sans: ["AlbertSans", "sans-serif"],
-      serif: ["AlbertSans", "serif"],
+      sans: ["Roboto", "sans-serif"],
+      serif: ["Roboto", "serif"],
     },
   },
   plugins: [],
