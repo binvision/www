@@ -40,6 +40,12 @@ body {
   @apply text-black;
 }
 
+canvas{
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: -1;
+}
 
 [data-tooltip] {
   cursor: pointer;

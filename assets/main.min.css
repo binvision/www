@@ -597,6 +597,22 @@ video {
   position: relative;
 }
 
+.-top-10 {
+  top: -2.5rem;
+}
+
+.-left-10 {
+  left: -2.5rem;
+}
+
+.-right-10 {
+  right: -2.5rem;
+}
+
+.-bottom-10 {
+  bottom: -2.5rem;
+}
+
 .left-4 {
   left: 1rem;
 }
@@ -611,42 +627,6 @@ video {
 
 .top-4 {
   top: 1rem;
-}
-
-.-top-4 {
-  top: -1rem;
-}
-
-.top-9 {
-  top: 2.25rem;
-}
-
-.top-0 {
-  top: 0px;
-}
-
-.left-0 {
-  left: 0px;
-}
-
-.right-0 {
-  right: 0px;
-}
-
-.-left-10 {
-  left: -2.5rem;
-}
-
-.-right-10 {
-  right: -2.5rem;
-}
-
-.-top-10 {
-  top: -2.5rem;
-}
-
-.-bottom-10 {
-  bottom: -2.5rem;
 }
 
 .z-40 {
@@ -702,30 +682,16 @@ video {
   height: 100vh;
 }
 
-.h-1\/2 {
-  height: 50%;
-}
-
-.h-full {
-  height: 100%;
-}
-
-.h-\[50vh\] {
-  height: 50vh;
+.h-24 {
+  height: 6rem;
 }
 
 .h-20 {
   height: 5rem;
 }
 
-.h-24 {
-  height: 6rem;
-}
-
-.min-h-max {
-  min-height: -webkit-max-content;
-  min-height: -moz-max-content;
-  min-height: max-content;
+.h-1\/2 {
+  height: 50%;
 }
 
 .w-full {
@@ -740,25 +706,12 @@ video {
   width: 2rem;
 }
 
-.w-2\/3 {
-  width: 66.666667%;
-}
-
-.min-w-full {
-  min-width: 100%;
-}
-
 .grow {
   flex-grow: 1;
 }
 
-.rotate-45 {
-  --tw-rotate: 45deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.rotate-2 {
-  --tw-rotate: 2deg;
+.rotate-3 {
+  --tw-rotate: 3deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -767,8 +720,8 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.rotate-3 {
-  --tw-rotate: 3deg;
+.rotate-45 {
+  --tw-rotate: 45deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -794,10 +747,6 @@ video {
 
 .gap-\[1px\] {
   gap: 1px;
-}
-
-.overflow-x-hidden {
-  overflow-x: hidden;
 }
 
 .rounded-full {
@@ -831,14 +780,14 @@ video {
   border-color: rgb(255 242 0 / var(--tw-border-opacity));
 }
 
-.border-gray {
-  --tw-border-opacity: 1;
-  border-color: rgb(160 160 160 / var(--tw-border-opacity));
-}
-
 .border-black {
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
+}
+
+.border-gray {
+  --tw-border-opacity: 1;
+  border-color: rgb(160 160 160 / var(--tw-border-opacity));
 }
 
 .bg-yellow {
@@ -861,29 +810,8 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.object-center {
-  -o-object-position: center;
-     object-position: center;
-}
-
 .p-8 {
   padding: 2rem;
-}
-
-.p-4 {
-  padding: 1rem;
-}
-
-.p-12 {
-  padding: 3rem;
-}
-
-.p-24 {
-  padding: 6rem;
-}
-
-.p-2 {
-  padding: 0.5rem;
 }
 
 .py-8 {
@@ -921,14 +849,14 @@ video {
   padding-right: 0.5rem;
 }
 
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
 .py-32 {
   padding-top: 8rem;
   padding-bottom: 8rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .py-1 {
@@ -944,20 +872,8 @@ video {
   padding-bottom: 2rem;
 }
 
-.pt-24 {
-  padding-top: 6rem;
-}
-
 .pb-4 {
   padding-bottom: 1rem;
-}
-
-.pb-48 {
-  padding-bottom: 12rem;
-}
-
-.pb-24 {
-  padding-bottom: 6rem;
 }
 
 .text-center {
@@ -984,14 +900,14 @@ video {
   line-height: 2.25rem;
 }
 
-.text-6xl {
-  font-size: 3.75rem;
-  line-height: 1;
-}
-
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
 }
 
 .uppercase {
@@ -1094,6 +1010,13 @@ html,
 body {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+canvas{
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: -1;
 }
 
 [data-tooltip] {
@@ -1214,11 +1137,6 @@ body {
   .md\:px-16 {
     padding-left: 4rem;
     padding-right: 4rem;
-  }
-
-  .md\:px-4 {
-    padding-left: 1rem;
-    padding-right: 1rem;
   }
 
   .md\:px-8 {
