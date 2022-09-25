@@ -22,9 +22,9 @@ const animationScripts = (obj, camera) => [
     end: 40,
     func: () => {
       camera.lookAt(obj.position);
-      camera.position.set(0, 1, 2);
-      obj.position.z = lerp(-20, 0, scalePercent(0, 60));
-			camera.position.y = lerp(1, 5, scalePercent(70, 80));
+      camera.position.set(-3, 3, 1);
+      obj.position.z = lerp(0, 3, scalePercent(50, 70));
+			//camera.position.y = lerp(0, 2, scalePercent(20, 50));
     },
   },
   {
@@ -32,17 +32,20 @@ const animationScripts = (obj, camera) => [
     end: 60,
     func: () => {
       camera.lookAt(obj.position);
-      camera.position.set(0, 1, 2);
-      obj.rotation.z = lerp(0, Math.PI, scalePercent(60, 70));
+      //camera.position.set(0, 7, 5);
+      //camera.position.set(0, 1, 2);
+      //obj.rotation.z = lerp(0, Math.PI, scalePercent(60, 70));
     },
   },
   {
     start: 60,
     end: 80,
     func: () => {
-      camera.position.x = lerp(0, 5, scalePercent(70, 80));
-      camera.position.y = lerp(1, 5, scalePercent(70, 80));
+      //camera.position.x = lerp(0, 5, scalePercent(70, 80));
+      //camera.position.y = lerp(1, 5, scalePercent(70, 80));
       camera.lookAt(obj.position);
+      camera.position.set(0, 7, 5);
+
     },
   },
   {
@@ -50,8 +53,8 @@ const animationScripts = (obj, camera) => [
     end: 101,
     func: () => {
       //auto rotate
-      obj.rotation.x += 0.01;
-      obj.rotation.y += 0.01;
+      // obj.rotation.x += 0.01;
+      // obj.rotation.y += 0.01;
     },
   },
 ];

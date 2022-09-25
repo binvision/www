@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "serve": "npx @11ty/eleventy --serve",
-    "build": "rollup --config --format iife",
+    "build": "rollup --watch --config --format iife",
     "tailwind": "npx tailwindcss -i ./src/main.css -o ./assets/main.min.css --watch"
   },
   "devDependencies": {

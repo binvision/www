@@ -7,6 +7,8 @@ import { animationScripts, animationPlay } from "./animation";
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xfff200);
+const light = new THREE.AmbientLight( 0x404040 ); // soft white light
+scene.add( light );
 
 const camera = new THREE.PerspectiveCamera(
   75,
@@ -17,6 +19,8 @@ const camera = new THREE.PerspectiveCamera(
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.outputEncoding = THREE.sRGBEncoding;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
 document.body.appendChild(renderer.domElement);
 
 const render = () => renderer.render(scene, camera);
@@ -36,9 +40,10 @@ let floppy = null;
 const onLoad = (gltf) => {
   console.log("model loaded.", gltf.scene);
   floppy = gltf.scene.children[0];
-  floppy.position.set(-1000, 0, -5000);
-  floppy.rotation.x -= 15;
-  floppy.rotation.y -= 45;
+  floppy.position.set(0, 0, 0);
+  
+  //floppy.rotation.x -= 90;
+  //floppy.rotation.y = 180;
   scene.add(floppy);
   animate();
 };

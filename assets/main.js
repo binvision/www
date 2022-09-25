@@ -33052,6 +33052,20 @@
 
 	}
 
+	class AmbientLight extends Light {
+
+		constructor( color, intensity ) {
+
+			super( color, intensity );
+
+			this.isAmbientLight = true;
+
+			this.type = 'AmbientLight';
+
+		}
+
+	}
+
 	class LoaderUtils {
 
 		static decodeText( array ) {
@@ -38491,7 +38505,6 @@
 	let scrollPercent = 0;
 
 	document.body.onscroll = () => {
-	  //calculate the current scroll progress as a percentage
 	  scrollPercent =
 	    ((document.documentElement.scrollTop || document.body.scrollTop) /
 	      ((document.documentElement.scrollHeight || document.body.scrollHeight) -
@@ -38503,7 +38516,6 @@
 	  return (1 - a) * x + a * y;
 	}
 
-	// Used to fit the lerps to start and end at specific scrolling percentages
 	function scalePercent(start, end) {
 	  return (scrollPercent - start) / (end - start);
 	}
@@ -38514,9 +38526,9 @@
 	    end: 40,
 	    func: () => {
 	      camera.lookAt(obj.position);
-	      camera.position.set(0, 1, 2);
-	      obj.position.z = lerp(-20, 0, scalePercent(0, 60));
-				camera.position.y = lerp(1, 5, scalePercent(70, 80));
+	      camera.position.set(-3, 3, 1);
+	      obj.position.z = lerp(0, 3, scalePercent(50, 70));
+				//camera.position.y = lerp(0, 2, scalePercent(20, 50));
 	    },
 	  },
 	  {
@@ -38524,19 +38536,20 @@
 	    end: 60,
 	    func: () => {
 	      camera.lookAt(obj.position);
-	      camera.position.set(0, 1, 2);
-	      obj.rotation.z = lerp(0, Math.PI, scalePercent(60, 70));
-	      //console.log(obj.rotation.z)
+	      //camera.position.set(0, 7, 5);
+	      //camera.position.set(0, 1, 2);
+	      //obj.rotation.z = lerp(0, Math.PI, scalePercent(60, 70));
 	    },
 	  },
 	  {
 	    start: 60,
 	    end: 80,
 	    func: () => {
-	      camera.position.x = lerp(0, 5, scalePercent(70, 80));
-	      camera.position.y = lerp(1, 5, scalePercent(70, 80));
+	      //camera.position.x = lerp(0, 5, scalePercent(70, 80));
+	      //camera.position.y = lerp(1, 5, scalePercent(70, 80));
 	      camera.lookAt(obj.position);
-	      //console.log(camera.position.x + " " + camera.position.y)
+	      camera.position.set(0, 7, 5);
+
 	    },
 	  },
 	  {
@@ -38544,8 +38557,8 @@
 	    end: 101,
 	    func: () => {
 	      //auto rotate
-	      obj.rotation.x += 0.01;
-	      obj.rotation.y += 0.01;
+	      // obj.rotation.x += 0.01;
+	      // obj.rotation.y += 0.01;
 	    },
 	  },
 	];
@@ -38561,7 +38574,9 @@
 	// 3D FLOPPY FUN
 
 	const scene = new Scene();
-	scene.background = new Color( 0xFFF200 );
+	scene.background = new Color(0xfff200);
+	const light = new AmbientLight( 0x404040 ); // soft white light
+	scene.add( light );
 
 	const camera = new PerspectiveCamera(
 	  75,
@@ -38572,6 +38587,8 @@
 
 	const renderer = new WebGLRenderer();
 	renderer.setSize(window.innerWidth, window.innerHeight);
+	renderer.outputEncoding = sRGBEncoding;
+	renderer.toneMapping = ACESFilmicToneMapping;
 	document.body.appendChild(renderer.domElement);
 
 	const render = () => renderer.render(scene, camera);
@@ -38591,9 +38608,10 @@
 	const onLoad = (gltf) => {
 	  console.log("model loaded.", gltf.scene);
 	  floppy = gltf.scene.children[0];
-	  floppy.position.set(-1000, 0, -5000);
-	  floppy.rotation.x -= 15;
-	  floppy.rotation.y -= 45;
+	  floppy.position.set(0, 0, 0);
+	  
+	  //floppy.rotation.x -= 90;
+	  //floppy.rotation.y = 180;
 	  scene.add(floppy);
 	  animate();
 	};
@@ -38602,7 +38620,6 @@
 
 	const gridHelper = new GridHelper(10, 10, 0xaec6cf, 0xaec6cf);
 	scene.add(gridHelper);
-
 
 	function onWindowResize() {
 	  camera.aspect = window.innerWidth / window.innerHeight;
@@ -38619,9 +38636,9 @@
 	  render();
 	}
 
-
 	window.addEventListener("resize", onWindowResize, false);
 	window.scrollTo({ top: 0, behavior: "smooth" });
+
 
 	// COPY PASTE
 	function copyToCb(e) {
