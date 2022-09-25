@@ -14,7 +14,7 @@
 </head>
 
 <body class="" :class="bgColor" x-data="{ contactOpen: false, bgColor: 'bg-yellow', textColor: 'text-yellow' }">
-  
+
   <nav class="py-8 px-8 md:py-16 md:px-16 flex justify-betweenshadow-lg z-40 absolute w-full">
     <h1 class="grow flex">
       <img src="/assets/binvision-logo.svg" class="w-16 h-16">
@@ -24,7 +24,8 @@
       <ul class="flex w-full">
         {% for nav in navigation %}
         <li class="">
-          <a href="{{nav.url}}" class="px-6 py-2  rounded-l-md active:bg-black hover:bg-black hover:text-white border border-yellow uppercase">{{nav.name}}</a>
+          <a href="{{nav.url}}"
+            class="px-6 py-2  rounded-l-md active:bg-black hover:bg-black hover:text-white border border-yellow uppercase">{{nav.name}}</a>
         </li>
         {% endfor %}
       </ul>
@@ -33,28 +34,28 @@
       <button @mouseover="open = true" class="border-2 rounded-full border-black w-8 h-8">
       </button>
       <div x-show="open" class="">
-          <a href="#" @click="bgColor='bg-yellow'" class="bg-yellow block w-8 h-8 border-2 rounded-full border-black "></a>
-          <a href="#" @click="bgColor='bg-blue'" class="bg-blue block w-8 h-8 border-2 rounded-full border-black "></a>
+        <a href="#" @click="bgColor='bg-yellow'"
+          class="bg-yellow block w-8 h-8 border-2 rounded-full border-black "></a>
+        <a href="#" @click="bgColor='bg-blue'" class="bg-blue block w-8 h-8 border-2 rounded-full border-black "></a>
       </div>
     </div>
   </nav>
 
   <header class="relative md:flex pt-32 h-screen" id="intro">
-    <div class="w-full md:w-1/2 md:h-full">
-      <canvas class="js-3d"></canvas>
+    <div class="hidden md:block md:w-1/2 md:h-full">
+      &nbsp;
     </div>
     <article class="md:w-1/2 p-8 md:p-8 md:right-0">
       <h1 class="text-4xl md:text-6xl">{{intro.p1}}</h1>
       <p class="text-2xl md:text-6xl pb-8">{{intro.p2}}</p>
       <p class="text-xl md:text-4xl pb-8">{{intro.p3}}</p>
-      <a href="#" class="px-8 py-4 shadow-lg bg-black text-white text-xl"  @click="contactOpen = true">{{intro.b1}}</a>
+      <a href="#" class="px-8 py-4 shadow-lg bg-black text-white text-xl" @click="contactOpen = true">{{intro.b1}}</a>
       <a href="#references" class="px-8 py-4 shadow-lg text-xl ml-2">{{intro.b2}}</a>
     </article>
   </header>
 
   <main>
-    <section id="how" class="h-75 bg-black py-24 relative">
-      <hr class="rotate-3 h-24 bg-black absolute -top-10 -left-10 -right-10 z-10">
+    <section id="how" class="h-75 py-24 relative bg-rotate-r">
       <div class="container mx-auto">
         <h2 class="px-8 py-24 text-4xl" :class="textColor">{{how.title}}</h2>
         <div class="flex">
@@ -67,18 +68,21 @@
         </div>
         <p class="text-2xl text-white">{{how.description}}</p>
       </div>
-      <hr class="rotate-3 h-24 bg-black absolute -bottom-10 -left-10 -right-10 z-10">
     </section>
 
-    <section id="works" class="py-24">
-      <div class="container mx-auto">
-        <h2 class="text-4xl pb-8">{{references.title}}</h2>
-        <p>{{references.intro}}</p>
-      </div>
+    <section id="works" class="">
+      <header class="bg-yellow mb-[1px] pt-24">
+        <div class="container mx-auto">
+          <h2 class="text-4xl pb-8">{{references.title}}</h2>
+          <p>{{references.intro}}</p>
+        </div>
+      </header>
       <div class="bg-stripes grid gap-[1px] grid-cols-1 md:grid-cols-3 md:grid-rows-2">
         {% for reference in references.references %}
-        <figure class="md:h-[50vh] justify-center items-center flex p-8 md:p-24" :class="bgColor" x-data="{ open: false }" @mouseover="open = true" @mouseleave="open = false">
-          <img src="/assets/clients/{{reference.img}}" class="md:min-w-full md:min-h-max" alt="{{reference.name}}" x-show="!open">
+        <figure class="md:h-[50vh] justify-center items-center flex p-8 md:p-24" :class="bgColor"
+          x-data="{ open: false }" @mouseover="open = true" @mouseleave="open = false">
+          <img src="/assets/clients/{{reference.img}}" class="md:min-w-full md:min-h-max" alt="{{reference.name}}"
+            x-show="!open">
           <figcaption x-show="open">
             <h3 class="text-2xl pb-4">{{reference.name}}</h3>
             <p>{{reference.description}}</p>
@@ -86,19 +90,20 @@
         </figure>
         {% endfor %}
       </div>
+      <footer class="pb-24 bg-yellow mt-[1px]">
+        &nbsp;
+      </footer>
     </section>
 
-    <section class="px-8 bg-black py-24 relative">
-      <hr class="-rotate-2 h-20 bg-black absolute -top-10 -left-10 -right-10 z-10">
+    <section class="px-8 bg-rotate-l py-24 relative">
       <div class="container mx-auto">
         <h2 class="text-4xl text-white pb-8">{{news.title}}</h2>
         {% for n in news.news %}
         <article>
-          <p class="py-4 text-white" ><mark class="py-2 px-2" :class="bgColor">{{n.date}}</mark> {{n.title}}</p>
+          <p class="py-4 text-white"><mark class="py-2 px-2" :class="bgColor">{{n.date}}</mark> {{n.title}}</p>
         </article>
         {% endfor %}
       </div>
-      <hr class="-rotate-2 h-20 bg-black absolute -bottom-10 -left-10 -right-10 z-10">
     </section>
 
     <section id="company" class="py-32 px-8">
@@ -115,14 +120,16 @@
             <span itemprop="streetAddress">{{company.address}}</span>
             <br />
             {{company.officeLabel}}:&nbsp;
-            <a href="{{company.gmaps}}" target="_blank" data-tooltip="Check it on Google Maps" itemscope itemtype="https://schema.org/PostalAddress">{{company.office}}</a>
+            <a href="{{company.gmaps}}" target="_blank" data-tooltip="Check it on Google Maps" itemscope
+              itemtype="https://schema.org/PostalAddress">{{company.office}}</a>
           </p>
           <div class="flex">
             <p class="pb-4">
-              <a href="mailto:{{company.email}}?subject={{company.emailSubject}}" data-tooltip="{{company.emailTip}}" itemprop="email">{{company.email}}</a><br/>
+              <a href="mailto:{{company.email}}?subject={{company.emailSubject}}" data-tooltip="{{company.emailTip}}"
+                itemprop="email">{{company.email}}</a><br />
               {{company.phone}}
             </p>
-            <button class="px-4 py-1 shadow-lg bg-black text-white mx-auto"  @click="contactOpen = true">Contact</button>
+            <button class="px-4 py-1 shadow-lg bg-black text-white mx-auto" @click="contactOpen = true">Contact</button>
           </div>
         </div>
         <div class="md:w-1/3">
@@ -142,26 +149,29 @@
             </a>
           </p>
           <p>
-            {{company.bank1Short}}: <span data-tooltip="{{company.bank1Label}}" class="js-copy">{{company.bank1}}</span><br>
+            {{company.bank1Short}}: <span data-tooltip="{{company.bank1Label}}"
+              class="js-copy">{{company.bank1}}</span><br>
             {{company.bank2Short}}: <span data-tooltip="{{company.bank2Label}}" class="js-copy">{{company.bank2}}</span>
           </p>
         </div>
-      </div>
+        </div>
       </article>
 
     </section>
     <p class="text-xs text-center pb-4">{{footer.imprint}} <br> {{footer.gdpr}} </p>
   </main>
-  <div class="fixed transition ease-in-out delay-150 bottom-100 left-4 right-4 bg-white h-1/2 p-8 rounded-t-lg shadow-lg"
-      x-show="contactOpen"
-      @click.away="contactOpen = false"
-    >
+  <div
+    class="fixed transition ease-in-out delay-150 bottom-100 left-4 right-4 bg-white h-1/2 p-8 rounded-t-lg shadow-lg"
+    x-show="contactOpen" @click.away="contactOpen = false">
     <button type="submit" class="absolute right-8 top-4 rotate-45 text-gray text-6xl">+</button>
     <h1>{{contact.title}}</h1>
     <p>{{contact.intro}}</p>
-    <input type="text" name="name" placeholder="{{contact.name}}" class="border-b border-gray text-xl w-full mb-4 outline-none">
-    <input type="email" name="email" placeholder="{{contact.email}}" class="border-b border-gray text-xl w-full mb-4 outline-none">
-    <input type="phone" name="phone" placeholder="{{contact.phone}}" class="border-b border-gray text-xl w-full mb-4 outline-none">
+    <input type="text" name="name" placeholder="{{contact.name}}"
+      class="border-b border-gray text-xl w-full mb-4 outline-none">
+    <input type="email" name="email" placeholder="{{contact.email}}"
+      class="border-b border-gray text-xl w-full mb-4 outline-none">
+    <input type="phone" name="phone" placeholder="{{contact.phone}}"
+      class="border-b border-gray text-xl w-full mb-4 outline-none">
     <textarea placeholder="Details" rows="3" class="border-b border-gray text-xl w-full mb-4 outline-none">
     </textarea>
     <button type="submit" class="bg-black text-white px-4 py-2" @click="contactOpen = false">{{contact.button}}</button>

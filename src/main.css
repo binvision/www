@@ -31,9 +31,29 @@
     -45deg, 
     rgba(0,0,0,0), 
     rgba(0,0,0,0) 3px, 
-    rgba(0,0,0,1) 3px, 
+    rgba(0,0,0,1) 6px, 
     rgba(0,0,0,1) 6px);
 }
+
+.bg-rotate-l:after,
+.bg-rotate-r:after {
+  position: absolute;
+  content: ' ';
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  background-color: black;
+  transform: skewY(3deg);
+  transform-origin: left top;
+  backface-visibility: hidden;
+  z-index: -1;
+}
+
+.bg-rotate-l:after {
+  transform: skewY(-3deg);
+}
+
 
 html,
 body {
@@ -44,7 +64,7 @@ canvas{
   top: 0;
   left: 0;
   position: fixed;
-  z-index: -1;
+  z-index: -2;
 }
 
 [data-tooltip] {

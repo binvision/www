@@ -597,22 +597,6 @@ video {
   position: relative;
 }
 
-.-top-10 {
-  top: -2.5rem;
-}
-
-.-left-10 {
-  left: -2.5rem;
-}
-
-.-right-10 {
-  right: -2.5rem;
-}
-
-.-bottom-10 {
-  bottom: -2.5rem;
-}
-
 .left-4 {
   left: 1rem;
 }
@@ -633,10 +617,6 @@ video {
   z-index: 40;
 }
 
-.z-10 {
-  z-index: 10;
-}
-
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -648,6 +628,14 @@ video {
 
 .ml-2 {
   margin-left: 0.5rem;
+}
+
+.mb-\[1px\] {
+  margin-bottom: 1px;
+}
+
+.mt-\[1px\] {
+  margin-top: 1px;
 }
 
 .mb-4 {
@@ -682,14 +670,6 @@ video {
   height: 100vh;
 }
 
-.h-24 {
-  height: 6rem;
-}
-
-.h-20 {
-  height: 5rem;
-}
-
 .h-1\/2 {
   height: 50%;
 }
@@ -708,16 +688,6 @@ video {
 
 .grow {
   flex-grow: 1;
-}
-
-.rotate-3 {
-  --tw-rotate: 3deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.-rotate-2 {
-  --tw-rotate: -2deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .rotate-45 {
@@ -872,8 +842,16 @@ video {
   padding-bottom: 2rem;
 }
 
+.pt-24 {
+  padding-top: 6rem;
+}
+
 .pb-4 {
   padding-bottom: 1rem;
+}
+
+.pb-24 {
+  padding-bottom: 6rem;
 }
 
 .text-center {
@@ -1002,8 +980,28 @@ video {
     -45deg, 
     rgba(0,0,0,0), 
     rgba(0,0,0,0) 3px, 
-    rgba(0,0,0,1) 3px, 
+    rgba(0,0,0,1) 6px, 
     rgba(0,0,0,1) 6px);
+}
+
+.bg-rotate-l:after,
+.bg-rotate-r:after {
+  position: absolute;
+  content: ' ';
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  background-color: black;
+  transform: skewY(3deg);
+  transform-origin: left top;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  z-index: -1;
+}
+
+.bg-rotate-l:after {
+  transform: skewY(-3deg);
 }
 
 html, 
@@ -1016,7 +1014,7 @@ canvas{
   top: 0;
   left: 0;
   position: fixed;
-  z-index: -1;
+  z-index: -2;
 }
 
 [data-tooltip] {
