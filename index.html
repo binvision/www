@@ -77,13 +77,14 @@
           <p>{{references.intro}}</p>
         </div>
       </header>
-      <div class="bg-stripes grid gap-[1px] grid-cols-1 md:grid-cols-3 md:grid-rows-2">
+      <div class="bg-yellow/50 grid gap-[1px] grid-cols-1 md:grid-cols-3 md:grid-rows-2">
         {% for reference in references.references %}
-        <figure class="md:h-[50vh] justify-center items-center flex p-8 md:p-24" :class="bgColor"
+        <figure class="md:h-[50vh]"
           x-data="{ open: false }" @mouseover="open = true" @mouseleave="open = false">
-          <img src="/assets/clients/{{reference.img}}" class="md:min-w-full md:min-h-max" alt="{{reference.name}}"
-            x-show="!open">
-          <figcaption x-show="open">
+          <div x-show="!open" class="p-8 md:p-24 justify-center items-center flex md:h-[50vh]" :class="bgColor">
+            <img src="/assets/clients/{{reference.img}}" class="md:min-w-full md:min-h-max" alt="{{reference.name}}">
+          </div>
+          <figcaption x-show="open" class="p-8 md:p-24">
             <h3 class="text-2xl pb-4">{{reference.name}}</h3>
             <p>{{reference.description}}</p>
           </figcaption>
